@@ -16,11 +16,21 @@ const AddTodoForm = (props) => {
     }
 
     const handleAddTodo = (event) => {
-        event.preventDefault();
+        //Remove reset() method 
+        //event.preventDefault();
+
+        //and reset to todoTitle state to empty String
+        //todoTitle = "";
+        
         //Remove todoTitle from handleAddTodo
         //let todoTitle = event.target.title.value;
         //console.log(todoTitle);
-        props.onAddTodo(todoTitle);
+
+        //update the onAddTodo callback prop to pass an Object instead of a String
+        props.onAddTodo({
+            title: todoTitle,
+            id: Date.now()
+        });
     }
     
     return (
