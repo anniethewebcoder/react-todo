@@ -17,7 +17,7 @@ import TodoListItem from './TodoListItem';
 //     }
 // ]
 
-//add props parameter and destructuring props
+//add props parameter which it worked and destructuring props
 const TodoList = ({todoList}) => {
     return (
         <ul>
