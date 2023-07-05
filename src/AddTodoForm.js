@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 
-const AddTodoForm = (props) => {
+const AddTodoForm = ({onAddTodo}) => {
 
     //create new state variable todoTitle
-    const [todoTitle, setTodoTitle] = useState("")
+    const [todoTitle, setTodoTitle] = useState("");
     
     //declare a new function handleTitleChange
     const handleTitleChange = (event) => {
@@ -15,22 +15,24 @@ const AddTodoForm = (props) => {
         console.log(newTodoTitle)
     }
 
-    const handleAddTodo = (event) => {
+    const handleAddTodo = () => {
         //Remove reset() method 
         //event.preventDefault();
 
-        //and reset to todoTitle state to empty String
-        //todoTitle = "";
+
         
         //Remove todoTitle from handleAddTodo
         //let todoTitle = event.target.title.value;
         //console.log(todoTitle);
 
         //update the onAddTodo callback prop to pass an Object instead of a String
-        props.onAddTodo({
+        onAddTodo({
             title: todoTitle,
             id: Date.now()
         });
+
+        //and reset to todoTitle state to empty String
+        //todoTitle = "";
     }
     
     return (
@@ -41,7 +43,7 @@ const AddTodoForm = (props) => {
             Modify input element to be a controlled input
             Add value to props.todoTitle
             add handleTitleChange function to onChange*/}
-            <input type='text' id='todoTitle' name='title' value={props.todoTitle} onChange={handleTitleChange}></input>
+            <input type='text' id='todoTitle' name='title' value={todoTitle} onChange={handleTitleChange}></input>
             <button type='submit'>Add</button>
 
         </form>
