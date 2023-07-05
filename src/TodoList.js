@@ -20,13 +20,15 @@ import TodoListItem from './TodoListItem';
 //add props parameter which it worked and destructuring props
 const TodoList = ({todoList}) => {
     return (
+      <>
         <ul>
         {
           todoList.map(function(item) {
-            return <TodoListItem key={item.id} todo={item}/>
+            return <TodoListItem key={item.id} todo={item.newTodo}/>
           })
         }
       </ul>
+      </>
     );
 }
 

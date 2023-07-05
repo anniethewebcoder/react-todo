@@ -12,9 +12,9 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   //declare a new function addtodo that takes newTodo as a parameter
-  const addTodo = ({newTodo}) => {
+  const addTodo = (newTodo) => {
     //set todoList with spread operator newTodo
-    setTodoList(...newTodo);
+    setTodoList([...todoList, {newTodo}]);
   }
 
   return (

@@ -15,12 +15,10 @@ const AddTodoForm = ({onAddTodo}) => {
         console.log(newTodoTitle)
     }
 
-    const handleAddTodo = () => {
+    const handleAddTodo = (event) => {
         //Remove reset() method 
-        //event.preventDefault();
+        event.preventDefault();
 
-
-        
         //Remove todoTitle from handleAddTodo
         //let todoTitle = event.target.title.value;
         //console.log(todoTitle);
@@ -30,7 +28,7 @@ const AddTodoForm = ({onAddTodo}) => {
             title: todoTitle,
             id: Date.now()
         });
-
+        setTodoTitle("")
         //and reset to todoTitle state to empty String
         //todoTitle = "";
     }
