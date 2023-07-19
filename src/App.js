@@ -6,7 +6,7 @@ const useSemiPersistentState = () => {
   const getList = localStorage.getItem("savedTodoList");
 
   const [todoList, setTodoList] = useState(
-    JSON.parse(getList)
+    JSON.parse(getList) || []
   );
 
   useEffect(() => {
