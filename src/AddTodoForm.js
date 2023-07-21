@@ -8,7 +8,6 @@ const AddTodoForm = ({onAddTodo}) => {
     const handleTitleChange = (event) => {
         let newTodoTitle = event.target.value;
         setTodoTitle(newTodoTitle);
-        console.log(newTodoTitle)
     }
 
     const handleAddTodo = (event) => {
