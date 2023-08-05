@@ -27,8 +27,7 @@ function App() {
     const newList = todoList.filter(
       (todo) => todo.newTodo.id !== item.id
     );
-    
-
+  
     setTodoList(newList);
   
   };
