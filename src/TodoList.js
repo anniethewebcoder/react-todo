@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-const TodoList = ({todoList}) => {
+const TodoList = ({ todoList, onRemoveTodo }) => {
 
     return (
       <>
@@ -12,6 +12,7 @@ const TodoList = ({todoList}) => {
               <TodoListItem 
                 key={item.newTodo.id} 
                 todo={item.newTodo}
+                onRemoveTodo={onRemoveTodo}
               />
             );          
           })
