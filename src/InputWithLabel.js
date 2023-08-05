@@ -1,26 +1,33 @@
 import { useEffect, useRef } from 'react';
 
-const InputWithLabel = (props) => {
+const InputWithLabel = ({
+    id,
+    title,
+    value,
+    isFocused,
+    onChange,
+    children
+}) => {
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if(props.isFocused && inputRef.current) {
+        if(isFocused && inputRef.current) {
             inputRef.current.focus();
         }
-    }, [props.isFocused]);
+    }, [isFocused]);
 
     return (
         <>
-            <label htmlFor='todoTitle'>{props.children}</label>
+            <label htmlFor='todoTitle'>{children}</label>
             <input
                 ref={inputRef}
                 type='text' 
-                id={props.id} 
-                name={props.title} 
-                value={props.value} 
-                autoFocus={props.isFocused}
-                onChange={props.onChange}></input>
+                id={id} 
+                name={title} 
+                value={value} 
+                autoFocus={isFocused}
+                onChange={onChange}></input>
         </>
     );
 };
