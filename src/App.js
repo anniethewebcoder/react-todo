@@ -5,7 +5,7 @@ import AddTodoForm from './AddTodoForm';
 const getSavedTodoList = JSON.parse(localStorage.getItem("savedTodoList"));
 
 const getAsyncTodoList = () =>
-new Promise((resolve, reject) => 
+new Promise((resolve) => 
   setTimeout(
     () => resolve({
       data: { todoList: getSavedTodoList }
@@ -16,11 +16,14 @@ new Promise((resolve, reject) =>
 function App() {
 
   const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getAsyncTodoList().then((result) => {
       setTodoList(result.data.todoList);
-    });
+      setIsLoading(false);
+    }).catch(() => setIsError(true));
   }, []);
 
   useEffect(() => {
@@ -44,7 +47,15 @@ function App() {
     <>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo}/>
-      <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
+
+      { isError && <p>Something went wrong ...</p> }
+
+      { isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
+      )}
+      
     </>
   );
 }
