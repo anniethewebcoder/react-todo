@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 
-// const getSavedTodoList = JSON.parse(localStorage.getItem("savedTodoList"));
-
 function App() {
 
   const [todoList, setTodoList] = useState([]);
