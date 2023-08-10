@@ -9,6 +9,7 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
     return (
         <li>
             {todo.title}
+            &nbsp; &nbsp;
             <button type="button" onClick={handleRemoveTodo}>Remove</button>
         </li>
     );

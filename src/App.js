@@ -2,22 +2,32 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 
-const useSemiPersistentState = () => {
-  const getList = localStorage.getItem("savedTodoList");
+function App() {
 
-  const [todoList, setTodoList] = useState(
-    JSON.parse(getList) || []
-  );
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  const getAsyncTodoList = () => 
+    new Promise((resolve) => 
+      setTimeout(
+        () => resolve({
+          data: { todoList: todoList }
+        }), 2000
+      )
+    )
+  
+
+  useEffect(() => {
+    getAsyncTodoList().then((result) => {
+      setTodoList(result.data.todoList);
+      setIsLoading(false);
+    }).catch(() => setIsError(true));
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("savedTodoList", JSON.stringify(todoList));
   }, [todoList]);
-
-  return [todoList, setTodoList]
-}
-
-function App() {
-  const [todoList, setTodoList] = useSemiPersistentState();
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, {newTodo}]);
@@ -36,7 +46,15 @@ function App() {
     <>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo}/>
-      <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
+
+      { isError && <p>Something went wrong ...</p> }
+
+      { isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
+      )}
+      
     </>
   );
 }
