@@ -2,22 +2,21 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 
-const getSavedTodoList = JSON.parse(localStorage.getItem("savedTodoList"));
-
-const getAsyncTodoList = () =>
-new Promise((resolve) => 
-  setTimeout(
-    () => resolve({
-      data: { todoList: getSavedTodoList }
-    }), 2000
-  )
-)
-
 function App() {
 
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const getAsyncTodoList = () => 
+    new Promise((resolve) => 
+      setTimeout(
+        () => resolve({
+          data: { todoList: todoList }
+        }), 2000
+      )
+    )
+  
 
   useEffect(() => {
     getAsyncTodoList().then((result) => {
