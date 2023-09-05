@@ -4,7 +4,7 @@ body {
     background-color: #E7DEBD;
     color: #4f5a65;
     font-family: 'Caveat', monospace;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 24px;
 }
 
@@ -20,7 +20,6 @@ body {
 
 .Heading {
     color: #956743;
-    border: 2px solid #B9CE8B;
     font-weight: 900;
     text-align: center;
 }
@@ -30,38 +29,45 @@ body {
     flex-direction: row;
     align-items: flex-end;
     flex-flow: row wrap;
-    border: 2px solid #B9CE8B;
     justify-content: space-around;
+    padding: 10px;
 }
 .ListItem {
     background-color: #B9CE8B;
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
     width: 120px;
     list-style-type: none;
-    border: 2px solid #B9CE8B;
 }
 
 .AddForm {
-    border: 2px solid #B9CE8B;
     text-align: center;
 }
 
 .Label {
+    color: #4f5a65;
     font-weight: 700;
-    border: 2px solid #B9CE8B;
+    font-size: 36px;
 }
 
 .Button {
     background-color: #956743;
     width: 100px;
-    height: 25px;
-    color: #B9CE8B;
+    padding: 8px;
+    margin-top: 20px;
+    color: #E7DEBD;
     font-family: 'Caveat', monospace;
-    font-weight: 300;
-    border: 2px solid #B9CE8B;
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
 }
 
 .Input {
     background-color: #B9CE8B;
+    width: 50%;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    border: none;
+    border-bottom: 2px solid #956743;
 }
