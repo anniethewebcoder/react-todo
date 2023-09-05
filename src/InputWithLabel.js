@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-
+import style from './TodoListItem.module.css'
 const InputWithLabel = ({
     id,
     title,
@@ -19,15 +19,16 @@ const InputWithLabel = ({
 
     return (
         <>
-            <label htmlFor='todoTitle'>{children}</label>
+            <label className={style.Label} htmlFor='todoTitle'>{children}</label>
             <input
+                className={style.Input}
                 ref={inputRef}
                 type='text' 
                 id={id} 
                 name={title} 
                 value={value} 
                 autoFocus={isFocused}
-                onChange={onChange}></input>
+                onChange={onChange} />
         </>
     );
 };

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color: #E7DEBD;
+    color: #4f5a65;
+    font-family: 'Caveat', monospace;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Heading {
+    color: #956743;
+    border: 2px solid #B9CE8B;
+    font-weight: 900;
+    text-align: center;
+}
+
+.List {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-flow: row wrap;
+    border: 2px solid #B9CE8B;
+    justify-content: space-around;
+}
+.ListItem {
+    background-color: #B9CE8B;
+    margin: 10px;
+    padding: 10px;
+    width: 120px;
+    list-style-type: none;
+    border: 2px solid #B9CE8B;
+}
+
+.AddForm {
+    border: 2px solid #B9CE8B;
+    text-align: center;
+}
+
+.Label {
+    font-weight: 700;
+    border: 2px solid #B9CE8B;
+}
+
+.Button {
+    background-color: #956743;
+    width: 100px;
+    height: 25px;
+    color: #B9CE8B;
+    font-family: 'Caveat', monospace;
+    font-weight: 300;
+    border: 2px solid #B9CE8B;
+}
+
+.Input {
+    background-color: #B9CE8B;
+}
