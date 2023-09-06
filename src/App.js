@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
+import style from "./TodoListItem.module.css"
 
 function App() {
 
@@ -42,17 +43,7 @@ function App() {
       console.log(error.message)
     }
   }
-
-  // const getAsyncTodoList = () => 
-  //   new Promise((resolve) => 
-  //     setTimeout(
-  //       () => resolve({
-  //         data: { todoList: todoList }
-  //       }), 2000
-  //     )
-  //   )
   
-
   useEffect(() => {
     loadTodo().then((result) => {
       setIsLoading(false);
@@ -81,8 +72,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
-        <>
-          <h1>Todo List</h1>
+        <div className={style.Container}>
+          
+          <h1 className={style.Heading}>Todo List</h1>
           <AddTodoForm onAddTodo={addTodo} />
           { 
             isLoading ? (
@@ -91,7 +83,7 @@ function App() {
               <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
             )
           }
-        </>
+        </div>
         } />
         <Route path="/new" element={<h1>New Todo List</h1>}/>
       </Routes>
