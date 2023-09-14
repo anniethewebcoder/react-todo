@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types'
 import style from './TodoListItem.module.css'
 const InputWithLabel = ({
     id,
@@ -32,5 +33,14 @@ const InputWithLabel = ({
         </>
     );
 };
+
+InputWithLabel.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    isFocused: PropTypes.bool,
+    onChange: PropTypes.func,
+    children: PropTypes.string
+}
 
 export default InputWithLabel;
