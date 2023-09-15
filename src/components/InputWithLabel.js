@@ -35,9 +35,9 @@ const InputWithLabel = ({
 };
 
 InputWithLabel.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    value: PropTypes.string,
     isFocused: PropTypes.bool,
     onChange: PropTypes.func,
     children: PropTypes.string
