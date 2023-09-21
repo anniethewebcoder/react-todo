@@ -8,6 +8,8 @@ function App() {
 
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [ascending, setAscending] = useState(true);
+  const [sortButton, setSortButton] = useState("Sort List A to Z")
 
 
 
@@ -66,6 +68,32 @@ function App() {
     setTodoList(newList);
   
   };
+
+  const toggleSorting = () => {
+
+    setAscending(!ascending)
+
+    let newList
+
+    if(ascending === true) {
+      setSortButton("Sort List Z to A")
+      newList = todoList.sort((a,b) => {
+        if(a.title > b.title) return 1
+        if(a.title < b.title) return -1
+        return 0
+      })
+    } else {
+      setSortButton("Sort List A to Z")
+      newList = todoList.sort((a,b) => {
+        if(a.title > b.title) return -1
+        if(a.title < b.title) return 1
+        return 0
+      })
+    }
+
+    setTodoList([...newList])
+   
+    }
   
   return (
     <>
@@ -80,7 +108,11 @@ function App() {
             isLoading ? (
               <p>Loading...</p>
             ) : (
+              <>
+              <button onClick={toggleSorting} className={style.Button}>{sortButton}</button>
+              { console.log(todoList) }
               <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
+              </>
             )
           }
         </div>
