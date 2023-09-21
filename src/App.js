@@ -93,7 +93,11 @@ function App() {
 
     setTodoList([...newList])
    
-    }
+  }
+  
+  const refreshButton = () => {
+    window.location.reload();
+  }
   
   return (
     <>
@@ -110,7 +114,7 @@ function App() {
             ) : (
               <>
               <button onClick={toggleSorting} className={style.Button}>{sortButton}</button>
-              { console.log(todoList) }
+              <button onClick={refreshButton} className={style.Button}>Sort By Time Created</button>
               <TodoList todoList={todoList}  onRemoveTodo={removeTodo} />
               </>
             )
