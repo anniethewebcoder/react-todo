@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import TodoList from './TodoList';
-import AddTodoForm from './AddTodoForm';
-import style from "./TodoListItem.module.css"
+import TodoList from './components/TodoList';
+import AddTodoForm from './components/AddTodoForm';
+import style from "./components/TodoListItem.module.css"
 
 function App() {
 
@@ -55,7 +55,7 @@ function App() {
   }, [todoList]);
 
   const addTodo = (newTodo) => {
-    setTodoList([...todoList, {newTodo}]);
+    setTodoList([...todoList, newTodo]);
   }
 
   const removeTodo = (item) => {
